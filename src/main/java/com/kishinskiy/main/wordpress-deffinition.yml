@@ -1,0 +1,90 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2019-10-03T13:48:28Z"
+  generateName: wordpress-d4bcd978b-
+  labels:
+    pod-template-hash: d4bcd978b
+    run: wordpress
+  name: wordpress-d4bcd978b-jl2wp
+  namespace: default
+  ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: wordpress-d4bcd978b
+      uid: 5173eb64-bff9-49fa-afb2-53c57abcf5a1
+  resourceVersion: "58288"
+  selfLink: /api/v1/namespaces/default/pods/wordpress-d4bcd978b-jl2wp
+  uid: da2205a6-1290-4e60-8b3f-86ef6f960c50
+spec:
+  containers:
+    - image: wordpress
+      imagePullPolicy: Always
+      name: wordpress
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: default-token-5f4v2
+          readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+  volumes:
+    - name: default-token-5f4v2
+      secret:
+        defaultMode: 420
+        secretName: default-token-5f4v2
+status:
+  conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2019-10-03T13:48:28Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2019-10-03T13:49:15Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2019-10-03T13:49:15Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2019-10-03T13:48:28Z"
+      status: "True"
+      type: PodScheduled
+  containerStatuses:
+    - containerID: docker://7a5dee4d07dd08a2016113ed1ee1fee1bdef7c4a696d0ff7ce5437a64ba04a2a
+      image: wordpress:latest
+      imageID: docker-pullable://wordpress@sha256:e1d546ca382366b10dce2f1aac81087db87dcb15bf75bb5d610e4a82c73d16ad
+      lastState: {}
+      name: wordpress
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: "2019-10-03T13:49:14Z"
+  hostIP: 10.0.2.15
+  phase: Running
+  podIP: 172.17.0.4
+  qosClass: BestEffort
+  startTime: "2019-10-03T13:48:28Z
